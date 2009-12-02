@@ -1,0 +1,8 @@
+<h1>New post</h1>
+
+<% semantic_form_for(@post) do |f| %>
+  <%= f.inputs :title, :body %>
+  <%= f.buttons %>
+<% end %>
+
+<%= link_to 'Back', posts_path %>

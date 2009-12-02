@@ -1,0 +1,1163 @@
+# Logfile created on Wed Dec 02 14:20:18 -0500 2009  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:27:44) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-02 14:29:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: posts: SELECT * FROM "posts" ):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (101.7ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20091202192021)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "confirmation_token" varchar(128), "remember_token" varchar(128), "email_confirmed" boolean DEFAULT 'f' NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_id_and_confirmation_token" ON "users" ("id", "confirmation_token")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091202192021')[0m
+Migrating to CreatePosts (20091202192857)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091202192857')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (14.4ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_remember_token')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_confirmation_token')[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-02 14:30:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 38ms (View: 33, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-02 14:31:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-02 14:31:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-02 14:39:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/belongs_to_helpers.rb:75:in `send'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/belongs_to_helpers.rb:75:in `evaluate_parent'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:128:in `association_chain'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:127:in `each'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:127:in `inject'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:127:in `association_chain'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:157:in `end_of_association_chain'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:23:in `collection'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:7:in `index'
+
+Rendered rescues/_trace (37.8ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:39:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:42:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+
+ActionView::MissingTemplate (Missing template users/index.erb in view path app/views:/gentoo/usr/lib/ruby/gems/1.8/gems/clearance-0.8.3/app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:42:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+
+ActionView::TemplateError (undefined local variable or method `page_title' for #<ActionView::Base:0x25d3610>) on line #2 of app/views/layouts/application.html.erb:
+1:   <head>
+2:     <title><%= page_title %> - The Scotch Zone</title>
+3:     <%= stylesheet_link_tag 'blueprint/screen.css', :media => 'screen, projection' %>
+4:     <%= stylesheet_link_tag 'blueprint/print.css', :media => 'print' %>
+5:     <!--[if lt IE 8]>
+
+    app/views/layouts/application.html.erb:2
+
+Rendered rescues/_trace (98.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:44:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+
+ActionView::TemplateError (undefined local variable or method `page_title' for #<ActionView::Base:0x25aac10>) on line #2 of app/views/layouts/application.html.erb:
+1:   <head>
+2:     <title><%= page_title %> - The Scotch Zone</title>
+3:     <%= stylesheet_link_tag 'blueprint/screen.css', :media => 'screen, projection' %>
+4:     <%= stylesheet_link_tag 'blueprint/print.css', :media => 'print' %>
+5:     <!--[if lt IE 8]>
+
+    app/views/layouts/application.html.erb:2
+
+Rendered rescues/_trace (92.1ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:45:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+
+ActionView::TemplateError (undefined local variable or method `page_title' for #<ActionView::Base:0x26c0a64>) on line #2 of app/views/layouts/application.html.erb:
+1:   <head>
+2:     <title><%= page_title %> - The Scotch Zone</title>
+3:     <%= stylesheet_link_tag 'blueprint/screen.css', :media => 'screen, projection' %>
+4:     <%= stylesheet_link_tag 'blueprint/print.css', :media => 'print' %>
+5:     <!--[if lt IE 8]>
+
+    app/views/layouts/application.html.erb:2
+
+Rendered rescues/_trace (37.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:45:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+
+ActionView::TemplateError (undefined local variable or method `page_title' for #<ActionView::Base:0x25aac10>) on line #2 of app/views/layouts/application.html.erb:
+1:   <head>
+2:     <title><%= page_title %> - The Scotch Zone</title>
+3:     <%= stylesheet_link_tag 'blueprint/screen.css', :media => 'screen, projection' %>
+4:     <%= stylesheet_link_tag 'blueprint/print.css', :media => 'print' %>
+5:     <!--[if lt IE 8]>
+
+    app/views/layouts/application.html.erb:2
+
+Rendered rescues/_trace (91.6ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:46:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+
+ActionView::TemplateError (undefined local variable or method `page_title' for #<ActionView::Base:0x26c0a64>) on line #2 of app/views/layouts/application.html.erb:
+1:   <head>
+2:     <title><%= page_title %> - Blogulator</title>
+3:     <%= stylesheet_link_tag 'blueprint/screen.css', :media => 'screen, projection' %>
+4:     <%= stylesheet_link_tag 'blueprint/print.css', :media => 'print' %>
+5:     <!--[if lt IE 8]>
+
+    app/views/layouts/application.html.erb:2
+
+Rendered rescues/_trace (38.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:46:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 51ms (View: 46, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:46:34) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/blueprint/screen.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:46:35) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/blueprint/print.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:46:35) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/formtastic.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:46:35) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/formtastic_customizations.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:46:35) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:47:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:47:14) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::SessionsController#new (for 127.0.0.1 at 2009-12-02 14:47:24) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+
+ActionView::TemplateError (undefined method `semantic_form_for' for #<ActionView::Base:0x25ba854>) on line #3 of app/views/sessions/new.html.erb:
+1: <h2>Sign in</h2>
+2: 
+3: <% semantic_form_for :session, :url => session_path do |form| %>
+4:   <% form.inputs do %>
+5:     <%= form.input :email %>
+6:     <%= form.input :password, :as => :password %>
+
+    app/views/sessions/new.html.erb:3
+    clearance (0.8.3) app/controllers/clearance/sessions_controller.rb:8:in `new'
+
+Rendered rescues/_trace (40.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Clearance::SessionsController#new (for 127.0.0.1 at 2009-12-02 14:48:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 57ms (View: 55, DB: 0) | 200 OK [http://localhost/sign_in]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:48:23) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::UsersController#new (for 127.0.0.1 at 2009-12-02 14:48:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_inputs (3.5ms)
+Completed in 47ms (View: 42, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:48:27) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20091202192021)
+Migrating to CreatePosts (20091202192857)
+Migrating to AddLoginToUser (20091202194851)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (29.0ms)[0m   [0mALTER TABLE "users" ADD "login" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091202194851')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_remember_token')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_confirmation_token')[0m
+
+
+Processing Clearance::UsersController#new (for 127.0.0.1 at 2009-12-02 14:51:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_inputs (6.1ms)
+Completed in 71ms (View: 17, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:51:10) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::UsersController#create (for 127.0.0.1 at 2009-12-02 14:51:24) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"clearance/users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"technicalpickles", "email"=>"josh@technicalpickles.com"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'josh@technicalpickles.com') LIMIT 1[0m
+  [4;35;1mUser Create (71.5ms)[0m   [0mINSERT INTO "users" ("encrypted_password", "salt", "created_at", "updated_at", "remember_token", "confirmation_token", "email_confirmed", "login", "email") VALUES('8797b9ee5c855be3f926a7542ae830ef9216837c', '94146a1578e2f76a63de67deb941dcbbef0428e3', '2009-12-02 19:51:24', '2009-12-02 19:51:24', NULL, '07139b7687b83147007b849035fdb92bf812ddad', 'f', 'technicalpickles', 'josh@technicalpickles.com')[0m
+
+NameError (uninitialized constant ClearanceMailer::HOST):
+  clearance (0.8.3) app/models/clearance_mailer.rb:3
+  clearance (0.8.3) app/controllers/clearance/users_controller.rb:15:in `create'
+
+Rendered rescues/_trace (37.8ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Clearance::UsersController#create (for 127.0.0.1 at 2009-12-02 14:53:12) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"clearance/users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"technicalpickles", "email"=>"josh@technicalpickles.com"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'josh@technicalpickles.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_inputs (6.5ms)
+Completed in 195ms (View: 27, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:53:12) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:53:12) [GET]
+
+ActionController::RoutingError (No route matches "/images/silk/exclamation.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "confirmation_token" varchar(128), "remember_token" varchar(128), "email_confirmed" boolean DEFAULT 'f' NOT NULL, "created_at" datetime, "updated_at" datetime, "login" varchar(255)) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_confirmation_token" ON "users" ("id", "confirmation_token")[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091202194851')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091202192021')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091202192857')[0m
+
+
+Processing Clearance::UsersController#create (for 127.0.0.1 at 2009-12-02 14:53:26) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"clearance/users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"technicalpickles", "email"=>"josh@technicalpickles.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'josh@technicalpickles.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.6ms)[0m   [0mINSERT INTO "users" ("encrypted_password", "salt", "created_at", "updated_at", "remember_token", "confirmation_token", "email_confirmed", "login", "email") VALUES('cf5b92a8cfeb3bda9cf23f468e62e364923e800b', 'a1003c12ba670e76fbb943868ec1613487dc7fec', '2009-12-02 19:53:26', '2009-12-02 19:53:26', NULL, 'e40b25fc0198c737b1b100e3a944f289a526334a', 'f', 'technicalpickles', 'josh@technicalpickles.com')[0m
+
+NameError (uninitialized constant ClearanceMailer::DO_NOT_REPLY):
+  clearance (0.8.3) app/models/clearance_mailer.rb:15:in `confirmation'
+  clearance (0.8.3) app/controllers/clearance/users_controller.rb:15:in `create'
+
+Rendered rescues/_trace (36.6ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "confirmation_token" varchar(128), "remember_token" varchar(128), "email_confirmed" boolean DEFAULT 'f' NOT NULL, "created_at" datetime, "updated_at" datetime, "login" varchar(255)) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_confirmation_token" ON "users" ("id", "confirmation_token")[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091202194851')[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091202192021')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091202192857')[0m
+
+
+Processing Clearance::UsersController#create (for 127.0.0.1 at 2009-12-02 14:54:11) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"clearance/users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"technicalpickles", "email"=>"josh@technicalpickles.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'josh@technicalpickles.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO "users" ("encrypted_password", "salt", "created_at", "updated_at", "remember_token", "confirmation_token", "email_confirmed", "login", "email") VALUES('44a514e59547996b640429bba47f6c12522cdcb9', '5915567ca5441516e358d082b68ee554c64d58d5', '2009-12-02 19:54:11', '2009-12-02 19:54:11', NULL, 'b3cabf231cda7c05d79c4757f581b462b02840bb', 'f', 'technicalpickles', 'josh@technicalpickles.com')[0m
+Sent mail to josh@technicalpickles.com
+
+Date: Wed, 2 Dec 2009 14:54:11 -0500
+From: donotreply@blogulator.com
+To: josh@technicalpickles.com
+Subject: Account confirmation
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+http://localhost:3000/users/1/confirmation/new?token=b3cabf231cda7c05d79c4757f581b462b02840bb
+Redirected to http://localhost:3000/session/new
+Completed in 228ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing Clearance::SessionsController#new (for 127.0.0.1 at 2009-12-02 14:54:11) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 21ms (View: 19, DB: 0) | 200 OK [http://localhost/session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:54:11) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::ConfirmationsController#new (for 127.0.0.1 at 2009-12-02 14:54:22) [GET]
+  Parameters: {"token"=>"[FILTERED]", "action"=>"new", "user_id"=>"1", "controller"=>"clearance/confirmations"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."confirmation_token" = 'b3cabf231cda7c05d79c4757f581b462b02840b' AND "users"."id" = '1') LIMIT 1[0m
+
+ActionController::Forbidden (non-existent user):
+  clearance (0.8.3) app/controllers/clearance/confirmations_controller.rb:52:in `forbid_non_existent_user'
+
+Rendered rescues/_trace (90.7ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (forbidden)
+
+
+Processing Clearance::ConfirmationsController#new (for 127.0.0.1 at 2009-12-02 14:54:26) [GET]
+  Parameters: {"token"=>"[FILTERED]", "action"=>"new", "user_id"=>"1", "controller"=>"clearance/confirmations"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."confirmation_token" = 'b3cabf231cda7c05d79c4757f581b462b02840b' AND "users"."id" = '1') LIMIT 1[0m
+
+ActionController::Forbidden (non-existent user):
+  clearance (0.8.3) app/controllers/clearance/confirmations_controller.rb:52:in `forbid_non_existent_user'
+
+Rendered rescues/_trace (31.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (forbidden)
+
+
+Processing Clearance::ConfirmationsController#new (for 127.0.0.1 at 2009-12-02 14:54:38) [GET]
+  Parameters: {"token"=>"[FILTERED]", "action"=>"new", "user_id"=>"1", "controller"=>"clearance/confirmations"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."confirmation_token" = 'b3cabf231cda7c05d79c4757f581b462b02840bb' AND "users"."id" = '1') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."confirmation_token" = 'b3cabf231cda7c05d79c4757f581b462b02840bb' AND "users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2009-12-02 19:54:38', "confirmation_token" = NULL, "email_confirmed" = 't' WHERE "id" = 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2009-12-02 19:54:38', "remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/
+Completed in 135ms (DB: 1) | 302 Found [http://localhost/users/1/confirmation/new?token=b3cabf231cda7c05d79c4757f581b462b02840bb]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:54:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Completed in 103ms (View: 96, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:54:39) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-02 14:54:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 14:54:49) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::UsersController#show (for 127.0.0.1 at 2009-12-02 14:54:51) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clearance/users"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::UsersController#show (for 127.0.0.1 at 2009-12-02 14:55:13) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clearance/users"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::UsersController#show (for 127.0.0.1 at 2009-12-02 15:05:04) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clearance/users"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::UsersController#show (for 127.0.0.1 at 2009-12-02 15:05:10) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clearance/users"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::UsersController#show (for 127.0.0.1 at 2009-12-02 15:05:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clearance/users"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-02 15:05:41) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+
+ActionView::MissingTemplate (Missing template users/show.erb in view path app/views:/gentoo/usr/lib/ruby/gems/1.8/gems/clearance-0.8.3/app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-02 15:07:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Completed in 167ms (View: 151, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:07:12) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-02 15:08:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Completed in 21ms (View: 13, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:08:01) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:08:05) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0x26e27e0>) on line #3 of app/views/posts/new.html.erb:
+1: <h1>New post</h1>
+2: 
+3: <% form_for(@post) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/posts/new.html.erb:3
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:107:in `retrieve_response_from_mimes'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `default_render'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:113:in `to_html'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `send'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:65:in `respond_with'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:19:in `new'
+
+Rendered rescues/_trace (47.5ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:09:05) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0x248289c>) on line #3 of app/views/posts/new.html.erb:
+1: <h1>New post</h1>
+2: 
+3: <% semantic_form_for(@post) do |f| %>
+4:   <%= f.inputs :title, :body %>
+5:   <%= f.buttons %>
+6: <% end %>
+
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1397:in `semantic_form_for'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1356:in `use_custom_field_error_proc'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1396:in `semantic_form_for'
+    app/views/posts/new.html.erb:3
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:107:in `retrieve_response_from_mimes'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `default_render'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:113:in `to_html'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `send'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:65:in `respond_with'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:19:in `new'
+
+Rendered rescues/_trace (46.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:09:15) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `title' for #<User:0x2505ee0>) on line #4 of app/views/posts/new.html.erb:
+1: <h1>New post</h1>
+2: 
+3: <% semantic_form_for(current_user, @post) do |f| %>
+4:   <%= f.inputs :title, :body %>
+5:   <%= f.buttons %>
+6: <% end %>
+7: 
+
+    formtastic (0.9.1) rails/./lib/formtastic.rb:505:in `send'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:505:in `input_simple'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:958:in `inline_input_for'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:106:in `send'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:106:in `input'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:105:in `map'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:105:in `input'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:254:in `inputs'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:254:in `map'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:254:in `inputs'
+    app/views/posts/new.html.erb:4
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1397:in `semantic_form_for'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1356:in `use_custom_field_error_proc'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1396:in `semantic_form_for'
+    app/views/posts/new.html.erb:3
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:107:in `retrieve_response_from_mimes'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `default_render'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:113:in `to_html'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `send'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:65:in `respond_with'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:19:in `new'
+
+Rendered rescues/_trace (123.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:09:22) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+
+ActionView::TemplateError (undefined local variable or method `posts_path' for #<ActionView::Base:0x2672634>) on line #8 of app/views/posts/new.html.erb:
+5:   <%= f.buttons %>
+6: <% end %>
+7: 
+8: <%= link_to 'Back', posts_path %>
+
+    app/views/posts/new.html.erb:8
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:107:in `retrieve_response_from_mimes'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `default_render'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:113:in `to_html'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `send'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:65:in `respond_with'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:19:in `new'
+
+Rendered rescues/_trace (41.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:11:21) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0x2648d0c>) on line #3 of app/views/posts/new.html.erb:
+1: <h1>New post</h1>
+2: 
+3: <% semantic_form_for(@post) do |f| %>
+4:   <%= f.inputs :title, :body %>
+5:   <%= f.buttons %>
+6: <% end %>
+
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1397:in `semantic_form_for'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1356:in `use_custom_field_error_proc'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1396:in `semantic_form_for'
+    app/views/posts/new.html.erb:3
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:107:in `retrieve_response_from_mimes'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `default_render'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:113:in `to_html'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `send'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:65:in `respond_with'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:19:in `new'
+
+Rendered rescues/_trace (46.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:11:39) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0x26611e0>) on line #3 of app/views/posts/new.html.erb:
+1: <h1>New post</h1>
+2: 
+3: <% semantic_form_for(@post) do |f| %>
+4:   <%= f.inputs :title, :body %>
+5:   <%= f.buttons %>
+6: <% end %>
+
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1397:in `semantic_form_for'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1356:in `use_custom_field_error_proc'
+    formtastic (0.9.1) rails/./lib/formtastic.rb:1396:in `semantic_form_for'
+    app/views/posts/new.html.erb:3
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:107:in `retrieve_response_from_mimes'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:163:in `default_render'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:113:in `to_html'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `send'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/responder.rb:106:in `call'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/legacy/respond_to.rb:65:in `respond_with'
+    /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:19:in `new'
+
+Rendered rescues/_trace (46.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:11:46) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 51ms (View: 45, DB: 0) | 200 OK [http://localhost/users/1/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:12:42) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering posts/new
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Completed in 47ms (View: 38, DB: 1) | 200 OK [http://localhost/users/1/posts/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:12:42) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-12-02 15:13:28) [POST]
+  Parameters: {"commit"=>"Create Post", "post"=>{"body"=>"test test test", "title"=>"test"}, "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"posts"}
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/belongs_to_helpers.rb:75:in `send'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/belongs_to_helpers.rb:75:in `evaluate_parent'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:128:in `association_chain'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:127:in `each'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:127:in `inject'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:127:in `association_chain'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:157:in `end_of_association_chain'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:49:in `build_resource'
+  app/controllers/posts_controller.rb:11:in `build_resource'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:31:in `create!'
+  app/controllers/posts_controller.rb:5:in `create'
+
+Rendered rescues/_trace (93.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:13:36) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+
+NoMethodError (undefined method `user=' for #<Post:0x2697830>):
+  app/controllers/posts_controller.rb:12:in `build_resource'
+  app/controllers/posts_controller.rb:11:in `build_resource'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:19:in `new'
+
+Rendered rescues/_trace (31.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:13:38) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+
+NoMethodError (undefined method `user=' for #<Post:0x255de88>):
+  app/controllers/posts_controller.rb:12:in `build_resource'
+  app/controllers/posts_controller.rb:11:in `build_resource'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:19:in `new'
+
+Rendered rescues/_trace (34.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:13:53) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+
+NoMethodError (undefined method `user=' for #<Post:0x276a8ac>):
+  app/controllers/posts_controller.rb:12:in `build_resource'
+  app/controllers/posts_controller.rb:11:in `build_resource'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:19:in `new'
+
+Rendered rescues/_trace (30.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-12-02 15:13:56) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"posts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Completed in 21ms (View: 9, DB: 1) | 200 OK [http://localhost/users/1/posts/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:13:56) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-12-02 15:13:59) [POST]
+  Parameters: {"commit"=>"Create Post", "post"=>{"body"=>"test test test", "title"=>"test"}, "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"posts"}
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/belongs_to_helpers.rb:75:in `send'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/belongs_to_helpers.rb:75:in `evaluate_parent'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:128:in `association_chain'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:127:in `each'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:127:in `inject'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:127:in `association_chain'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:157:in `end_of_association_chain'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:49:in `build_resource'
+  app/controllers/posts_controller.rb:11:in `build_resource'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:31:in `create!'
+  app/controllers/posts_controller.rb:5:in `create'
+
+Rendered rescues/_trace (100.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2009-12-02 15:18:22) [POST]
+  Parameters: {"commit"=>"Create Post", "post"=>{"body"=>"test test test", "title"=>"test"}, "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"posts"}
+
+ArgumentError (Unknown key(s): optional):
+  (eval):3:in `belongs_to'
+  app/models/post.rb:2
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/class_methods.rb:305:in `initialize_resources_class_accessors!'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/class_methods.rb:333:in `send'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/class_methods.rb:333:in `inherited'
+  app/controllers/posts_controller.rb:1
+
+Rendered rescues/_trace (46.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2009-12-02 15:18:40) [POST]
+  Parameters: {"commit"=>"Create Post", "post"=>{"body"=>"test test test", "title"=>"test"}, "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"posts"}
+
+ArgumentError (Unknown key(s): optional):
+  (eval):3:in `belongs_to'
+  app/models/post.rb:2
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/class_methods.rb:305:in `initialize_resources_class_accessors!'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/class_methods.rb:333:in `send'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/class_methods.rb:333:in `inherited'
+  app/controllers/posts_controller.rb:1
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-12-02 15:18:49) [POST]
+  Parameters: {"commit"=>"Create Post", "post"=>{"body"=>"test test test", "title"=>"test"}, "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"posts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+  [4;35;1mPost Create (13.8ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "user_id") VALUES('2009-12-02 20:18:49', 'test', 'test test test', '2009-12-02 20:18:49', 1)[0m
+
+NoMethodError (undefined method `scotch' for nil:NilClass):
+  app/controllers/posts_controller.rb:5:in `create'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:342:in `call'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:342:in `respond_with_dual_blocks'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:36:in `create!'
+  app/controllers/posts_controller.rb:5:in `create'
+
+Rendered rescues/_trace (35.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-12-02 15:19:04) [POST]
+  Parameters: {"commit"=>"Create Post", "post"=>{"body"=>"test test test", "title"=>"test"}, "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"posts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+  [4;35;1mPost Create (4.6ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "user_id") VALUES('2009-12-02 20:19:04', 'test', 'test test test', '2009-12-02 20:19:04', 1)[0m
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/posts_controller.rb:5:in `create'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:342:in `call'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/base_helpers.rb:342:in `respond_with_dual_blocks'
+  /gentoo/usr/lib/ruby/gems/1.8/gems/inherited_resources-0.9.2/lib/inherited_resources/actions.rb:36:in `create!'
+  app/controllers/posts_controller.rb:5:in `create'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-12-02 15:19:14) [POST]
+  Parameters: {"commit"=>"Create Post", "post"=>{"body"=>"test test test", "title"=>"test"}, "action"=>"create", "authenticity_token"=>"Ev3Y9pMCQHIvJO8vfdlcfaspQl39xbeTPjHLDQ1erLE=", "controller"=>"posts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "user_id") VALUES('2009-12-02 20:19:14', 'test', 'test test test', '2009-12-02 20:19:14', 1)[0m
+Redirected to http://localhost:3000/users/1
+Completed in 73ms (DB: 0) | 302 Found [http://localhost/posts]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-02 15:19:14) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Completed in 84ms (View: 11, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:19:14) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-02 15:19:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Completed in 19ms (View: 11, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:19:18) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-02 15:19:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:19:20) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-02 15:19:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'f59d89286f4b92b88226a47106701170eb5a0645') LIMIT 1[0m
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:19:21) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

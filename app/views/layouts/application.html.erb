@@ -1,0 +1,58 @@
+  <head>
+    <title><%#= page_title %> - Blogulator</title>
+    <%= stylesheet_link_tag 'blueprint/screen.css', :media => 'screen, projection' %>
+    <%= stylesheet_link_tag 'blueprint/print.css', :media => 'print' %>
+    <!--[if lt IE 8]>
+    <%= stylesheet_link_tag 'blueprint/ie.css', :media => 'screen, projection' %>
+    <![endif]-->
+    <%= stylesheet_link_tag 'formtastic', 'formtastic_customizations' %>
+    <%= stylesheet_link_tag 'application' %>
+    
+  </head>
+  <body>
+    <% container do %>
+      <% column :full, :id => :heading do %>
+        <h1>Blogulator</h1>
+      <% end %>
+
+      <% column :full, :id => :navigation do %>
+        <% column :three_fourths do %>
+          <ul>
+            <li>
+              <%= link_to 'My Posts', signed_in? ? current_user : root_path %>
+            </li>
+            <li>
+              <%= link_to 'All Bloggers', users_path %>
+            </li>
+          </ul>
+        <% end %>
+
+        <% column :one_fourth, :last do %>
+          
+          <ul>
+            <% if signed_in? %>
+              <li><%= link_to 'Sign out', sign_out_path %></li>
+            <% else %>
+              <li><%= link_to 'Sign in', sign_in_path %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+
+
+      <% column :full, :id => :content do %>
+        <% [:notice, :error, :warning].each do |key|  %>
+          <% if flash[key].present? %>
+            <div id="<%= key %>">
+              <%= flash[key] %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <h2><%#= page_title %></h2>
+
+        <%= yield %>
+      <% end %>
+    <% end %>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<ul>
+  <% @user.posts.each do |post| -%>
+    <li><%= link_to h(post.title), post %></li>
+  <% end -%>
+</ul>
+
+<%= link_to "new post", new_user_post_path(@user) %>
