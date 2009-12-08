@@ -8,6 +8,8 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic'
   config.gem 'title_estuary'
   config.gem 'subdomain-fu'
+  #config.gem 'shuber-proxy', :source => 'http://gems.github.com', :lib => 'proxy'
+  #require 'proxy'
   config.time_zone = 'UTC'
 end
 
